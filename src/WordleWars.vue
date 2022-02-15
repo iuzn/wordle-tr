@@ -225,48 +225,48 @@ function createEmojiScore (successGrid: string) {
 
       <div v-if="gameState === GameState.INTRO" id="intro">
         <div>
-          <h2>Enter your name</h2>
+          <h2>Adınızı giriniz</h2>
           <form @submit.prevent="enterWaitingRoom">
-            <label for="set-username">Username</label>
+            <label for="set-username">Kullanıcı adı</label>
             <input type="text" id="set-username" v-model="username" autocomplete="off" required />
-            <button>Join game</Button>
+            <button>Kapışmaya katıl</Button>
           </form>
           <div class="divider" />
           <button class="button-gray" @click="onCopyLink" :disabled="!!copyLinkMessage">
-            {{ copyLinkMessage || 'Copy link' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+            {{ copyLinkMessage || 'Bağlantıyı kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
           </button>
-          <div class="small-center-message">Share link to play together</div>
+          <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaş</div>
         </div>
       </div>
 
       <div v-if="gameState === GameState.WAITING || gameState === GameState.READY" id="waiting">
         <div>
-          <h2>Waiting for players</h2>
+          <h2>Oyuncular bekleniyor</h2>
           <div class="waiting-list">
             <div class="waiting-player">
-              <span>{{ myPresence.name }} (you)</span>
+              <span>{{ myPresence.name }} (sen)</span>
               <div :class="[myPresence.stage === GameState.READY ? 'waiting-player-ready' : 'waiting-player-waiting']">
                 {{ myPresence.stage === GameState.READY ? 'Ready' : 'Waiting' }}
               </div>
             </div>
             <div v-for="other in othersPresence" class="waiting-player">
               <span v-if="other.name">{{ other.name }}</span>
-              <span v-else><i>Selecting name...</i></span>
+              <span v-else><i>Ad seçme...</i></span>
               <div :class="[other.stage === GameState.WAITING || other.stage === GameState.INTRO ? 'waiting-player-waiting' : 'waiting-player-ready']">
-                {{ other.stage === GameState.READY ? 'Ready' : other.stage === GameState.PLAYING ? 'Playing' : 'Waiting' }}
+                {{ other.stage === GameState.READY ? 'Hazır' : other.stage === GameState.PLAYING ? 'Oyanıyor' : 'Bekliyor' }}
               </div>
             </div>
             <button v-if="myPresence.stage !== GameState.READY" @click="updateGameStage(GameState.READY)" class="">
-              Ready to start?
+              Hazırsan, başla!
             </button>
             <button v-else @click="updateGameStage(GameState.WAITING)" class="button-yellow">
-              Not ready?
+             Hazır değil misin?
             </button>
             <div class="divider" />
             <button class="button-gray" @click="onCopyLink">
               {{ copyLinkMessage || 'Copy link' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
             </button>
-            <div class="small-center-message">Share link to play together</div>
+            <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaşın</div>
           </div>
 
           <div v-if="startAnimation" class="start-animation">

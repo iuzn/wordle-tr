@@ -7,7 +7,7 @@ export function useList (name: string, initial?: any[]): Ref<() => LiveList<any>
   const room = inject<Room>(roomSymbol)
 
   if (!room) {
-    console.error('Use RoomProvider as parent with id prop')
+    console.error('RoomProvider ı id prop ile ebeveyn olarak kullanın')
     return null
   }
 

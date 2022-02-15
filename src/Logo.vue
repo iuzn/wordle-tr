@@ -1,6 +1,6 @@
 <script setup>
 // Set `name` for a text logo
-const name = $ref('wordle wars')
+const name = $ref('wordle kapışması')
 </script>
 
 <template>

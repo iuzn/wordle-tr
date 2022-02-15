@@ -41,7 +41,7 @@ function toggleInfoOpen () {
     <div>
       <h2>
         <span>
-          Info
+          Bilgi
         </span>
         <button @click="toggleInfoOpen">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
@@ -50,29 +50,27 @@ function toggleInfoOpen () {
         </button>
       </h2>
       <p>
-        <strong>WORDLE WARS</strong> was built by <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a>.
-        It's open-source and available on <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>, be creative!
+        <strong>WORDLE KAPIŞMASI</strong> <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a> .
+        Açık kaynak kodludur ve şurada mevcuttur: <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>.
+        <br>
+        <span class="text-xs ">
+        *Bu proje <a class="link" href="https://twitter.com/ctnicholasdev">@iuzn</a> tarafından çatallanarak Türkçeleştirilmiştir. Projeye buradan ulaşabilirsiniz: <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>.</span>
       </p>
       <p>
-        Wordle Wars uses <a class="link" href="https://liveblocks.io/">Liveblocks</a> to add multiplayer, which I wholeheartedly recommend trying.
-        Give me a tag if you build anything fun.
-      </p>
-      <p>
-        I also write interactive web dev articles on my website: <a class="link" href="https://ctnicholas.dev">ctnicholas.dev</a>
+        Wordle Kapışması çok oyunculu eklemek için <a class="link" href="https://liveblocks.io/">Liveblocks</a>'i kullanır.
       </p>
       <div class="divider" />
-      <h2 class="mt-6">How to play</h2>
+      <h2 class="mt-6">Nasıl oynanır</h2>
       <p>
-        Guess the <strong>WORDLE</strong> in six tries.
+        <strong>WORDLE</strong>'ı altı denemede bulun.
       </p>
       <p>
-        Each guess must be a valid five-letter word. Hit the enter button to submit.
+        Her tahmin, geçerli bir beş harfli kelime olmalıdır. Göndermek için giriş düğmesine basın.      </p>
+      <p>
+        Her tahminden sonra, karoların rengi, tahmininizin kelimeye ne kadar yakın olduğunu göstermek için değişecektir.
       </p>
       <p>
-        After each guess, the color of the tiles will change to show how close your guess was to the word.
-      </p>
-      <p>
-        The first to guess the WORDLE wins <strong>WORDLE WARS</strong>.
+        WORDLE'ı ilk tahmin eden <strong>WORDLE KAPIŞMASINI</strong> kazanır.
       </p>
       <div class="divider" />
       <p>
@@ -80,25 +78,27 @@ function toggleInfoOpen () {
       </p>
       <div class="example">
         <p>
-          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.relay }" :rows="messages.relay.length" />
+          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.abone }" :rows="messages.abone.length" />
         </p>
-        <p>The letter <strong>R</strong> is in the word and in the correct spot.</p>
+        <p><strong>A</strong> harfi kelimede var ve doğru yerde.
+         </p>
       </div>
       <div class="example">
         <p>
-          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.happy }" :rows="messages.happy.length" />
+          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.gizem }" :rows="messages.gizem.length" />
         </p>
-        <p>The letter <strong>A</strong> is in the word but in the wrong spot.</p>
+        <p><strong>İ</strong> harfi kelimede var fakat yanlış yerde.
+        </p>
       </div>
       <div class="example">
         <p>
-          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.minds }" :rows="messages.minds.length" />
+          <MiniBoard :large="true" :showLetters="true" :user="{ board: messages.falez }" :rows="messages.falez.length" />
         </p>
-        <p>No letters are in the word in any spot.</p>
+        <p>Kelimenin hiçbir yerinde harf yok.</p>
       </div>
       <div class="divider" />
       <p>
-        <strong>A new WORDLE will be available each day!</strong>
+        <strong>Her gün yeni bir WORDLE gelir!</strong>
       </p>
 
     </div>

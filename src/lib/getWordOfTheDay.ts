@@ -2,8 +2,8 @@ import { answers } from '../words'
 
 export function getWordOfTheDay () {
   if (import.meta.env.DEV) {
-    console.log('DEV: Answer is PRIDE')
-    return { answer: 'pride', answerDay: 1 }
+    console.log('DEV: MERAK doğru cevap')
+    return { answer: 'merak', answerDay: 1 }
   }
 
   const now = dateToUtc(new Date())

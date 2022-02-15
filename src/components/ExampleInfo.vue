@@ -12,7 +12,7 @@ const open = $ref(true)
         <h1 class="text-2xl text-white dark:text-gray-900 font-extrabold tracking-tight">{{ info.title }}</h1>
       </div>
       <button @click="open = false" class="text-gray-400 hover:text-gray-300 focus:text-gray-300 dark:text-gray-500 dark:hover:text-gray-600 dark:focus:text-gray-600 w-8 h-8 flex items-center justify-center -mr-3 rounded-full">
-        <span class="sr-only">Close dialog</span>
+        <span class="sr-only">İletişim kutusunu kapat</span>
         <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M2.96967 11.9697L11.9697 2.96967L13.0303 4.03033L4.03033 13.0303L2.96967 11.9697Z"></path>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0303 11.9697L4.03033 2.96967L2.96968 4.03033L11.9697 13.0303L13.0303 11.9697Z"></path>
@@ -29,7 +29,7 @@ const open = $ref(true)
         <path d="M3.5 3.5v9h9V8H14v5a1 1 0 01-1 1H3a1 1 0 01-1-1V3a1 1 0 011-1h5v1.5H3.5z"></path>
         <path clip-rule="evenodd" d="M11.44 3.5H10V2h4v4h-1.5V4.56L7.53 9.53 6.47 8.47l4.97-4.97z"></path>
       </svg>
-      Open in new window
+      Yeni pencerede aç
     </a>
     <div class="flex items-center justify-between pb-4">
       <span class="pt-1"><a :href="info.website" class="transition-colors text-white dark:text-black hover:text-white font-extrabold tracking-tight text-xl">ctnicholas.dev</a></span>

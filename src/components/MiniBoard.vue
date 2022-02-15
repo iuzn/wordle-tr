@@ -45,7 +45,7 @@ const currentBoard = $computed(() => {
               animationDelay: `${index * 100}ms`
             }"
           >
-            {{ showLetters ? tile.letter.toUpperCase() : '' }}
+            {{ showLetters ? tile.letter.toLocaleUpperCase('tr-TR') : '' }}
           </div>
         </div>
       </div>

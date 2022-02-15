@@ -26,33 +26,33 @@ const enterYourName = [
   ]
 ]
 
-const relay = [
+const abone = [
   [
-    { letter: 'r', state: 'correct' },
-    { letter: 'e', state: 'absent' },
-    { letter: 'l', state: 'absent' },
-    { letter: 'a', state: 'absent' },
-    { letter: 'y', state: 'absent' }
-  ],
-]
-
-const happy = [
-  [
-    { letter: 'h', state: 'absent' },
-    { letter: 'a', state: 'present' },
-    { letter: 'p', state: 'absent' },
-    { letter: 'p', state: 'absent' },
-    { letter: 'y', state: 'absent' }
-  ],
-]
-
-const minds = [
-  [
-    { letter: 'm', state: 'absent' },
-    { letter: 'i', state: 'absent' },
+    { letter: 'a', state: 'correct' },
+    { letter: 'b', state: 'absent' },
+    { letter: 'o', state: 'absent' },
     { letter: 'n', state: 'absent' },
-    { letter: 'd', state: 'absent' },
-    { letter: 's', state: 'absent' }
+    { letter: 'e', state: 'absent' }
+  ],
+]
+
+const gizem = [
+  [
+    { letter: 'g', state: 'absent' },
+    { letter: 'i', state: 'present' },
+    { letter: 'z', state: 'absent' },
+    { letter: 'e', state: 'absent' },
+    { letter: 'm', state: 'absent' }
+  ],
+]
+
+const falez = [
+  [
+    { letter: 'f', state: 'absent' },
+    { letter: 'a', state: 'absent' },
+    { letter: 'l', state: 'absent' },
+    { letter: 'e', state: 'absent' },
+    { letter: 'z', state: 'absent' }
   ],
 ]
 
@@ -91,4 +91,4 @@ const connecting = [
   ]
 ]
 
-export default { wordToBoard, relay, happy, minds, connecting, fight, enterYourName }
+export default { wordToBoard, abone, gizem, falez, connecting, fight, enterYourName }

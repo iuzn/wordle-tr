@@ -47,9 +47,9 @@ onUnmounted(() => {
   window.removeEventListener('keyup', onKeyup)
 })
 
-function onKey (key: string) {
+function onKey(key: string) {
   if (!allowInput) return
-  if (/^[a-zA-Z]$/.test(key)) {
+  if (/^[a-zA-ZğüşöçıİĞÜŞÖÇ]$/.test(key)) {
     fillTile(key.toLowerCase())
   } else if (key === 'Backspace') {
     clearTile()
@@ -81,7 +81,7 @@ function completeRow () {
     const guess = currentRow.map((tile) => tile.letter).join('')
     if (!allWords.includes(guess) && guess !== answer) {
       shake()
-      showMessage(`Not in word list`)
+      showMessage(`Kelime listesinde yok`)
       return
     }
 
@@ -122,7 +122,7 @@ function completeRow () {
       setTimeout(() => {
         grid = genResultGrid()
         showMessage(
-          ['Genius', 'Magnificent', 'Impressive', 'Splendid', 'Great', 'Phew'][
+          ['Dahi', 'Muhteşem', 'Etkileyici', 'Fevkalade', 'Harika', 'Bitirici'][
             currentRowIndex
           ],
           -1
@@ -145,7 +145,7 @@ function completeRow () {
     }
   } else {
     shake()
-    showMessage('Not enough letters')
+    showMessage('Yeterli harf yok')
   }
 }
 
@@ -189,7 +189,7 @@ function genResultGrid () {
     <div id="board">
       <div v-if="message" :class="['board-message', 'backdrop-blur', success && 'board-message-success']">
         <button v-if="success" @click="message = ''" class="absolute right-6 top-3 text-gray-300 hover:text-gray-100 focus:text-gray-100 w-8 h-8 flex items-center justify-center -mr-3 rounded-full">
-          <span class="sr-only">Close dialog</span>
+          <span class="sr-only">İletişim kutusunu kapat</span>
           <svg class="w-6 h-6" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M2.96967 11.9697L11.9697 2.96967L13.0303 4.03033L4.03033 13.0303L2.96967 11.9697Z"></path>
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0303 11.9697L4.03033 2.96967L2.96968 4.03033L11.9697 13.0303L13.0303 11.9697Z"></path>
@@ -199,7 +199,7 @@ function genResultGrid () {
           {{ message }}
         </div>
         <div v-if="success">
-          Waiting for other players to finish...
+          Diğer oyuncuların bitirmesini bekleyin...
         </div>
       </div>
       <div class="board-left">
@@ -218,7 +218,7 @@ function genResultGrid () {
           :class="['tile', tile.letter && 'filled', tile.state && 'revealed']"
         >
           <div class="front" :style="{ transitionDelay: `${index * 300}ms` }">
-            {{ tile.letter }}
+            {{ tile.letter.replace(/i/g, 'İ') }}
           </div>
           <div
             :class="['back', tile.state]"
@@ -227,7 +227,7 @@ function genResultGrid () {
               animationDelay: `${index * 100}ms`
             }"
           >
-            {{ tile.letter }}
+            {{ tile.letter.replace(/i/g, 'İ') }}
           </div>
         </div>
       </div>
