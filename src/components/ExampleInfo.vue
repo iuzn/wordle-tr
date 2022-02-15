@@ -32,7 +32,7 @@ const open = $ref(true)
       Yeni pencerede aç
     </a>
     <div class="flex items-center justify-between pb-4">
-      <span class="pt-1"><a :href="info.website" class="transition-colors text-white dark:text-black hover:text-white font-extrabold tracking-tight text-xl">ctnicholas.dev</a></span>
+      <span class="pt-1"><a :href="info.website" class="transition-colors text-white dark:text-black hover:text-white font-extrabold tracking-tight text-xl">wordletr.vercel.app</a></span>
       <ul class="flex items-center -mr-2 mt-2">
         <li v-if="info.twitterHref">
           <a
