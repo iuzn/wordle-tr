@@ -50,11 +50,8 @@ function toggleInfoOpen () {
         </button>
       </h2>
       <p>
-        <strong>WORDLE KAPIŞMASI</strong> <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a> .
-        Açık kaynak kodludur ve şurada mevcuttur: <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>.
-        <br>
-        <span class="text-xs ">
-        *Bu proje <a class="link" href="https://twitter.com/ctnicholasdev">@iuzn</a> tarafından çatallanarak Türkçeleştirilmiştir. Projeye buradan ulaşabilirsiniz: <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>.</span>
+        <strong>WORDLE KAPIŞMASI</strong>, <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a> tarafından geliştirilen <a class="link" href="https://github.com/CTNicholas/wordle-wars">WORDLE WARS</a>'ın  <a class="link" href="https://twitter.com/ctnicholasdev">@iuzn</a> tarafından Türkçeye çevrilmiş versiyonudur.
+      Kaynak:  <a class="link" href="https://github.com/CTNicholas/wordle-wars">GitHub</a>
       </p>
       <p>
         Wordle Kapışması çok oyunculu eklemek için <a class="link" href="https://liveblocks.io/">Liveblocks</a>'i kullanır.
