@@ -9,7 +9,7 @@ const open = $ref(true)
   <div v-if="!info.hide && open" class="fixed z-50 top-4 left-4 right-4 px-6 max-w-full sm:w-96 rounded-lg font-karla text-gray-400 bg-gray-900 dark:bg-gray-100 dark:text-gray-500">
     <div class="flex justify-between pt-6 mt-0.5">
       <div>
-        <h1 class="text-xl sm:text-xl text-white dark:text-gray-900 font-extrabold tracking-tight">{{ info.title }}</h1>
+        <h1 class="text-lg sm:text-2xl text-white dark:text-gray-900 font-extrabold tracking-tight">{{ info.title }}</h1>
       </div>
       <button @click="open = false" class="text-gray-400 hover:text-gray-300 focus:text-gray-300 dark:text-gray-500 dark:hover:text-gray-600 dark:focus:text-gray-600 w-8 h-8 flex items-center justify-center -mr-3 rounded-full">
         <span class="sr-only">İletişim kutusunu kapat</span>
