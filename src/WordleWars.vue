@@ -199,7 +199,7 @@ function onGameComplete ({ success, successGrid }: GameCompleteProps) {
 // Copy link on click button
 function onCopyLink () {
   copyUrlToClipboard()
-  copyLinkMessage = 'Copied'
+  copyLinkMessage = 'Kopyalandı'
   setTimeout(() => copyLinkMessage = '', 1400)
 }
 
@@ -233,7 +233,7 @@ function createEmojiScore (successGrid: string) {
           </form>
           <div class="divider" />
           <button class="button-gray" @click="onCopyLink" :disabled="!!copyLinkMessage">
-            {{ copyLinkMessage || 'Bağlantıyı kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+            {{ copyLinkMessage || 'Oyun linkini kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
           </button>
           <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaş</div>
         </div>
@@ -246,7 +246,7 @@ function createEmojiScore (successGrid: string) {
             <div class="waiting-player">
               <span>{{ myPresence.name }} (sen)</span>
               <div :class="[myPresence.stage === GameState.READY ? 'waiting-player-ready' : 'waiting-player-waiting']">
-                {{ myPresence.stage === GameState.READY ? 'Ready' : 'Waiting' }}
+                {{ myPresence.stage === GameState.READY ? 'Hazır' : 'Bekliyor' }}
               </div>
             </div>
             <div v-for="other in othersPresence" class="waiting-player">
@@ -264,7 +264,7 @@ function createEmojiScore (successGrid: string) {
             </button>
             <div class="divider" />
             <button class="button-gray" @click="onCopyLink">
-              {{ copyLinkMessage || 'Copy link' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+              {{ copyLinkMessage || 'Oyun linkini kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
             </button>
             <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaşın</div>
           </div>
@@ -297,7 +297,7 @@ function createEmojiScore (successGrid: string) {
         <div v-if="gameState === GameState.SCORES" id="scores">
           <div>
             <h2>
-              <span>Final scores for Day {{ answerDay }}, <strong class="tracking-wider">{{ answer.toUpperCase() }}</strong></span>
+              <span> {{ answerDay }}. gün için nihai puanlar, <strong class="tracking-wider">{{ answer.toUpperCase() }}</strong></span>
             </h2>
             <div class="divider" />
             <div class="scores-grid">
@@ -307,11 +307,7 @@ function createEmojiScore (successGrid: string) {
               Copy emoji scores <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
             </button>
             <div class="divider" />
-            <div class="text-center mt-6">
-              Come back tomorrow for a new Wordle War!
-            </div>
-            <div class="text-center mt-2">
-              Follow me on <a class="font-semibold text-green-600 dark:text-green-500" href="https://twitter.com/ctnicholasdev">Twitter</a> for more fun experiments.
+            <div class="text-center mt-6">Yeni bir Wordle Kapışması için yarın tekrar gelin!
             </div>
 
           </div>
