@@ -59,11 +59,11 @@ const falez = [
 
 const fight = [
   [
-    { letter: 'k', state: 'correct' },
+    { letter: 'b', state: 'correct' },
     { letter: 'a', state: 'correct' },
-    { letter: 'p', state: 'correct' },
-    { letter: 'ı', state: 'correct' },
-    { letter: 'ş', state: 'correct' }
+    { letter: 'ş', state: 'correct' },
+    { letter: 'l', state: 'correct' },
+    { letter: 'a', state: 'correct' }
   ],
 ]
 
