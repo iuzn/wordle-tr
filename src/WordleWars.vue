@@ -210,7 +210,7 @@ function createEmojiScore (successGrid: string) {
     resultString += `${index + 1}. ${user.name}\n`
   })
   resultString += '\n' + successGrid
-  return resultString + '\n\nhttps://wordletr.vercel.app'
+  return resultString + '\n\nhttps://wordle.elementlab.net'
 }
 </script>
 

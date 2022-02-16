@@ -5,5 +5,5 @@ export const info = {
   githubHref: 'https://github.com/CTNicholas/wordle-wars',
   codeSandboxHref: '',
   twitterHref: 'https://twitter.com/@ibrahimuzn',
-  website: 'https://wordletr.vercel.app'
+  website: 'https://wordle.elementlab.net'
 }
