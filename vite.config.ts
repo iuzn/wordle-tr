@@ -5,11 +5,5 @@ import { VitePWA } from "vite-plugin-pwa"
 export default defineConfig({
   plugins: [vue({
     reactivityTransform: true
-  }), VitePWA({ strategies: 'injectManifest',
-    manifest: {
-      // content of manifest
-    },
-    injectManifest: {
-      // workbox options for injectManifest
-    }}),],
+  }), VitePWA(),],
 })
