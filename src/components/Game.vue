@@ -15,12 +15,12 @@ const { answer } = defineProps<{
 
 // Board state. Each tile is represented as { letter, state }
 const board = $ref(
-  Array.from({ length: 6 }, () =>
-    Array.from({ length: 5 }, () => ({
-      letter: '',
-      state: LetterState.INITIAL
-    }))
-  )
+    Array.from({ length: 6 }, () =>
+        Array.from({ length: 5 }, () => ({
+          letter: '',
+          state: LetterState.INITIAL
+        }))
+    )
 )
 
 // Current active row.
@@ -47,7 +47,7 @@ onUnmounted(() => {
   window.removeEventListener('keyup', onKeyup)
 })
 
-function onKey(key: string) {
+function onKey (key: string) {
   if (!allowInput) return
   if (/^[a-zA-ZğüşöçıİĞÜŞÖÇ]$/.test(key)) {
     fillTile(key.toLowerCase())
@@ -174,11 +174,11 @@ const icons = {
 
 function genResultGrid () {
   return board
-    .slice(0, currentRowIndex + 1)
-    .map((row) => {
-      return row.map((tile) => icons[tile.state]).join('')
-    })
-    .join('\n')
+      .slice(0, currentRowIndex + 1)
+      .map((row) => {
+        return row.map((tile) => icons[tile.state]).join('')
+      })
+      .join('\n')
 }
 </script>
 
@@ -206,23 +206,23 @@ function genResultGrid () {
         <slot name="board-left" />
       </div>
       <div
-        v-for="(row, index) in board"
-        :class="[
+          v-for="(row, index) in board"
+          :class="[
           'row',
           shakeRowIndex === index && 'shake',
           success && currentRowIndex === index && 'jump'
         ]"
       >
         <div
-          v-for="(tile, index) in row"
-          :class="['tile', tile.letter && 'filled', tile.state && 'revealed']"
+            v-for="(tile, index) in row"
+            :class="['tile', tile.letter && 'filled', tile.state && 'revealed']"
         >
           <div class="front" :style="{ transitionDelay: `${index * 300}ms` }">
             {{ tile.letter.replace(/i/g, 'İ') }}
           </div>
           <div
-            :class="['back', tile.state]"
-            :style="{
+              :class="['back', tile.state]"
+              :style="{
               transitionDelay: `${index * 300}ms`,
               animationDelay: `${index * 100}ms`
             }"

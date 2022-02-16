@@ -301,11 +301,11 @@ export type OtherScore = {
 
 export type OtherUser = {
   name: string
-  ready: boolean
   board: string
   score: OtherScore
   stage: GameState
   rowsComplete: number
+  timeFinished: number
 }
 
 export const enum LetterState {

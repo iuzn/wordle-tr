@@ -15,8 +15,6 @@ import { sortUsers } from './lib/sortUsers'
 import messages from './lib/messages'
 import Header from './components/Header.vue'
 
-// TODO CodeSandbox
-
 /**
  * WORDLE WARS is a Wordle clone that allows for multiplayer gameplay. It works
  * using Liveblocks (https://liveblocks.io), a set of tools helpful for building
@@ -47,8 +45,8 @@ const savedScores = useList('scores-' + answer)
 // Get all others with presence, and return their presence
 let othersPresence = $computed(() => {
   return others?.value
-    ? [...others.value].filter(other => other.presence).map(other => other.presence)
-    : []
+      ? [...others.value].filter(other => other.presence).map(other => other.presence)
+      : []
 })
 
 // Filter others by odd or even number for live scores on either side of screen
@@ -137,7 +135,7 @@ function allInStages (stages: GameState[]) {
   let myPresenceFound = false
   return stages.some(stage => {
     const othersReady = others.value?.toArray().every(
-      other => other.presence && other.presence.stage === stage
+        other => other.presence && other.presence.stage === stage
     )
     myPresenceFound = myPresenceFound || myPresence!.value.stage === stage
     return Boolean(othersReady)
@@ -154,7 +152,8 @@ async function enterWaitingRoom () {
     board: '',
     score: { [LetterState.ABSENT]: 0, [LetterState.CORRECT]: 0, [LetterState.PRESENT]: 0 },
     stage: gameState,
-    rowsComplete: 0
+    rowsComplete: 0,
+    timeFinished: Infinity
   })
 
   updateGameStage(GameState.WAITING)
@@ -187,11 +186,13 @@ function onGameComplete ({ success, successGrid }: GameCompleteProps) {
     return
   }
   updateGameStage(GameState.COMPLETE)
+  let updatedPresence: { timeFinished: number, score?: {} } = { timeFinished: Number(Date.now()) }
   if (success) {
-    updateMyPresence({ score: { ...myPresence.value.score, [LetterState.CORRECT]: 5 }})
+    updatedPresence = { ...updatedPresence, score: { ...myPresence.value.score, [LetterState.CORRECT]: 5 }}
     confettiAnimation = true
     setTimeout(() => confettiAnimation = false, 3000)
   }
+  updateMyPresence(updatedPresence)
   savedScores.value()!.push(myPresence.value as OtherUser)
   emojiScore = createEmojiScore(successGrid || '')
 }
@@ -202,6 +203,10 @@ function onCopyLink () {
   copyLinkMessage = 'Kopyalandı'
   setTimeout(() => copyLinkMessage = '', 1400)
 }
+function onCopyScoreBoard (text:string) {
+  copyTextToClipboard(text)
+  copyLinkMessage = 'Kopyalandı'
+}
 
 // Create emoji scores
 function createEmojiScore (successGrid: string) {
@@ -210,7 +215,7 @@ function createEmojiScore (successGrid: string) {
     resultString += `${index + 1}. ${user.name}\n`
   })
   resultString += '\n' + successGrid
-  return resultString + '\n\nhttps://wordle.elementlab.net'
+  return resultString + '\n\nhttps://wordletr.vercel.app'
 }
 </script>
 
@@ -229,13 +234,13 @@ function createEmojiScore (successGrid: string) {
           <form @submit.prevent="enterWaitingRoom">
             <label for="set-username">Kullanıcı adı</label>
             <input type="text" id="set-username" v-model="username" autocomplete="off" required />
-            <button>Kapışmaya katıl</Button>
+            <button class="ready-button">Kapışmaya katıl</Button>
           </form>
           <div class="divider" />
-          <button class="button-gray" @click="onCopyLink" :disabled="!!copyLinkMessage">
-            {{ copyLinkMessage || 'Oyun linkini kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+          <button class="copy-button" @click="onCopyLink" :disabled="!!copyLinkMessage">
+            {{ copyLinkMessage || 'Linki kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
           </button>
-          <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaş</div>
+          <div class="small-center-message text-sm">Birlikte oynamak için bağlantıyı paylaş</div>
         </div>
       </div>
 
@@ -251,20 +256,20 @@ function createEmojiScore (successGrid: string) {
             </div>
             <div v-for="other in othersPresence" class="waiting-player">
               <span v-if="other.name">{{ other.name }}</span>
-              <span v-else><i>Ad seçme...</i></span>
+              <span v-else><i>Adını seçiyor...</i></span>
               <div :class="[other.stage === GameState.WAITING || other.stage === GameState.INTRO ? 'waiting-player-waiting' : 'waiting-player-ready']">
                 {{ other.stage === GameState.READY ? 'Hazır' : other.stage === GameState.PLAYING ? 'Oyanıyor' : 'Bekliyor' }}
               </div>
             </div>
-            <button v-if="myPresence.stage !== GameState.READY" @click="updateGameStage(GameState.READY)" class="">
+            <button v-if="myPresence.stage !== GameState.READY" @click="updateGameStage(GameState.READY)" class="ready-button">
               Hazırsan, başla!
             </button>
-            <button v-else @click="updateGameStage(GameState.WAITING)" class="button-yellow">
-             Hazır değil misin?
+            <button v-else @click="updateGameStage(GameState.WAITING)" class="unready-button">
+              Hazır değil misin?
             </button>
             <div class="divider" />
-            <button class="button-gray" @click="onCopyLink">
-              {{ copyLinkMessage || 'Oyun linkini kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+            <button class="copy-button" @click="onCopyLink">
+              {{ copyLinkMessage || 'Linki kopyala' }} <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
             </button>
             <div class="small-center-message">Birlikte oynamak için bağlantıyı paylaşın</div>
           </div>
@@ -297,17 +302,24 @@ function createEmojiScore (successGrid: string) {
         <div v-if="gameState === GameState.SCORES" id="scores">
           <div>
             <h2>
-              <span> {{ answerDay }}. gün için nihai puanlar, <strong class="tracking-wider">{{ answer.toUpperCase() }}</strong></span>
+              <span class="underline underline-offset-1 decoration-emerald-400">
+                Doğru kelime:
+              </span>
+            <strong class="tracking-wider">{{ answer.toLocaleUpperCase('tr-TR') }}</strong>
+            </h2>
+            <h2>
+              <span> {{ answerDay }}. gün için nihai puanlar:</span>
             </h2>
             <div class="divider" />
             <div class="scores-grid">
               <MiniBoardScore v-for="(other, index) in sortUsers(savedScores().toArray())" :user="other" :position="index + 1" :showLetters="true" />
             </div>
-            <button v-if="myPresence?.board?.length" @click="copyTextToClipboard(emojiScore)">
-              Emoji puanlarını kopyala <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
+            <button v-if="myPresence?.board?.length" @click="onCopyScoreBoard(emojiScore)" :disabled="!!copyLinkMessage" class="ready-button">
+              {{ copyLinkMessage || 'Puan durumunu kopyala' }}     <svg xmlns="http://www.w3.org/2000/svg" class="inline -mt-0.5 ml-0.5 h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M8 2a1 1 0 000 2h2a1 1 0 100-2H8z" /><path d="M3 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v6h-4.586l1.293-1.293a1 1 0 00-1.414-1.414l-3 3a1 1 0 000 1.414l3 3a1 1 0 001.414-1.414L10.414 13H15v3a2 2 0 01-2 2H5a2 2 0 01-2-2V5zM15 11h2a1 1 0 110 2h-2v-2z" /></svg>
             </button>
             <div class="divider" />
-            <div class="text-center mt-6">Yeni bir Wordle Kapışması için yarın tekrar gelin!
+            <div class="text-center mt-6">
+              Yeni bir Wordle Kapışması için yarın tekrar gelin!
             </div>
 
           </div>
@@ -315,7 +327,9 @@ function createEmojiScore (successGrid: string) {
       </Transition>
 
       <div v-if="confettiAnimation" class="confetti-wrapper">
-        <ConfettiExplosion :colors="['#1bb238', '#d2a207', '#82918b']" />
+        <div>
+          <ConfettiExplosion :colors="['#1bb238', '#d2a207', '#82918b']" />
+        </div>
       </div>
 
     </div>
@@ -384,7 +398,6 @@ input {
 
 button {
   width: 100%;
-  background-color: #1bb238;
   padding: 9px 10px;
   border-radius: 4px;
   color: #fff;
@@ -408,14 +421,6 @@ button:active {
 
 input:focus-visible, input:focus, button:focus-visible {
   outline: 2px solid #118f2b;
-}
-
-button.button-yellow {
-  filter: hue-rotate(286deg);
-}
-
-button.button-gray {
-  filter: grayscale(1);
 }
 
 h2 {
@@ -470,7 +475,6 @@ h2 {
 .small-center-message {
   width: 100%;
   text-align: center;
-  font-size: 16px;
   font-weight: 500;
   opacity: 0.6;
   margin-top: 12px;
@@ -489,19 +493,6 @@ h2 {
 
 .waiting-player-message {
   margin-top: 24px;
-}
-
-.waiting-player-waiting {
-  color: #C9B458;
-}
-
-.waiting-player-ready {
-  color: #6AAA64;
-}
-
-.waiting-ready {
-  width: 100%;
-  background-color: limegreen;
 }
 
 .start-animation {
@@ -558,6 +549,7 @@ h2 {
   justify-content: center;
   align-items: center;
   z-index: 50;
+  pointer-events: none;
 }
 
 .fade-scores-enter-active,
