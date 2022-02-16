@@ -4,7 +4,7 @@ import vue from '@vitejs/plugin-vue'
 import { VitePWA } from 'vite-plugin-pwa'
 export default defineConfig({
   plugins: [
-    VitePWA({}),
+    VitePWA(),
     vue({
       reactivityTransform: true
     })

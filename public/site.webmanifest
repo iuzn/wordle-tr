@@ -1,19 +1,38 @@
 {
-    "name": "",
-    "short_name": "",
-    "icons": [
-        {
-            "src": "/android-chrome-192x192.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "/android-chrome-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
-    ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+   "name":"Wordle Kapışması",
+   "short_name":"WordleTR",
+   "icons":[
+      {
+         "src":"/android-chrome-192x192.png",
+         "sizes":"192x192",
+         "type":"image/png",
+         "purpose":"any maskable"
+      },
+      {
+         "src":"/android-chrome-512x512.png",
+         "sizes":"512x512",
+         "type":"image/png"
+      }
+   ],
+   "description":"Çok oyunculu Türkçe kelime bulma oyunu",
+   "display":"standalone",
+   "start_url":"/",
+   "dir":"ltr",
+   "lang":"en",
+   "orientation":"portrait-primary",
+   "prefer_related_applications":true,
+   "manifestUrl":"https://wordletr.vercel.app/site.webmanifest",
+   "shortcuts":[
+      {
+         "name":"Blog",
+         "url":"/blog",
+         "icons":[
+            {
+               "src":"https://avatars.githubusercontent.com/u/25708048?s=250?s=192",
+               "type":"image/png",
+               "sizes":"192x192"
+            }
+         ]
+      }
+   ]
 }
