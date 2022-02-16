@@ -21,7 +21,7 @@
    "lang":"en",
    "orientation":"portrait-primary",
    "prefer_related_applications":true,
-   "manifestUrl":"https://wordle.elementlab.net/site.webmanifest",
+   "manifestUrl":"https://wordletr.vercel.app/site.webmanifest",
    "shortcuts":[
       {
          "name":"Blog",
