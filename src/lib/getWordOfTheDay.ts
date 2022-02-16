@@ -1,10 +1,10 @@
 import { answers } from '../words'
 
 export function getWordOfTheDay () {
-  // if (import.meta.env.DEV) {
-  //   console.log('DEV: MERAK doğru cevap')
-  //   return { answer: 'merak', answerDay: 1 }
-  // }
+  if (import.meta.env.DEV) {
+    console.log('DEV: MERAK doğru cevap')
+    return { answer: 'merak', answerDay: 1 }
+  }
 const numbers=[
   618,
   103,
@@ -1674,7 +1674,6 @@ const numbers=[
   while (day > answers.length) {
     day -= answers.length
   }
-  console.log(answers[numbers[day]],numbers[day])
   return { answer: answers[numbers[day]], answerDay: day + 1 }
 }
 
