@@ -1,6 +1,7 @@
 import { createApp } from 'vue'
 import Index from './Index.vue'
 import './styles/global.css'
+import { registerSW } from "virtual:pwa-register";
 
 // resize for scaling the board size
 window.addEventListener('resize', onResize)
@@ -13,3 +14,4 @@ function onResize () {
 }
 
 createApp(Index).mount('#app')
+registerSW({ immediate: true });

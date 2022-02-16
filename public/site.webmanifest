@@ -18,21 +18,8 @@
    "display":"standalone",
    "start_url":"/",
    "dir":"ltr",
-   "lang":"en",
+   "lang":"tr",
    "orientation":"portrait-primary",
    "prefer_related_applications":true,
-   "manifestUrl":"https://wordletr.vercel.app/site.webmanifest",
-   "shortcuts":[
-      {
-         "name":"Blog",
-         "url":"/blog",
-         "icons":[
-            {
-               "src":"https://avatars.githubusercontent.com/u/25708048?s=250?s=192",
-               "type":"image/png",
-               "sizes":"192x192"
-            }
-         ]
-      }
-   ]
+   "manifestUrl":"https://wordletr.vercel.app/site.webmanifest"
 }

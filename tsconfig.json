@@ -12,5 +12,5 @@
     "lib": ["esnext", "dom"],
     "types": ["vite/client"]
   },
-  "include": ["env.d.ts", "src/**/*"]
+  "include": ["env.d.ts", "src/**/*", "node_modules/vite-plugin-pwa/client.d.ts"]
 }
