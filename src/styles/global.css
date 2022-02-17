@@ -186,9 +186,6 @@ input, button {
   background-color: #3F3F46 !important;
 }
 
-.copy-button {
-  background-color: #898989;
-}
 
 .link {
   @apply text-green-600 dark:text-green-500 font-semibold;

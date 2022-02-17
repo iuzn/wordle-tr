@@ -1,6 +1,8 @@
 export function copyUrlToClipboard () {
   copyTextToClipboard(window.location.href)
-  navigator.share({url: window.location.href})
+  if (!import.meta.env.DEV) {
+    navigator.share({url: window.location.href})
+  }
 }
 
 export function copyTextToClipboard (text: string) {
