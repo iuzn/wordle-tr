@@ -1,7 +1,8 @@
 export function copyUrlToClipboard () {
   copyTextToClipboard(window.location.href)
-  if (!import.meta.env.DEV && navigator.share({url: window.location.href})) {
-    navigator.share({url: window.location.href})
+  if (!import.meta.env.DEV && navigator.share) {
+    navigator.share({url: window.location.href}).then(() => console.log('Link paylaşım için kopyalandı'))
+        .catch((error) => console.log('Bir hata mevcut', error))
     console.log(navigator.share({url: window.location.href}))
   }
 }
