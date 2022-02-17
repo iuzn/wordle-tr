@@ -205,6 +205,11 @@ function onCopyLink () {
 }
 function onCopyScoreBoard (text:string) {
   copyTextToClipboard(text)
+  if (!import.meta.env.DEV && navigator.share) {
+    navigator.share({url: window.location.href}).then(() => console.log('Link paylaşım için kopyalandı'))
+        .catch((error) => console.log('Bir hata mevcut', error))
+    console.log(navigator.share({text: text}))
+  }
   copyLinkMessage = 'Kopyalandı'
 }
 
