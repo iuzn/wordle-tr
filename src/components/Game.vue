@@ -139,7 +139,7 @@ function completeRow () {
     } else {
       // game over :(
       setTimeout(() => {
-        showMessage(answer.toUpperCase(), -1)
+        showMessage(answer.toLocaleUpperCase('tr-TR'), -1)
         emit('gameComplete', { success: false })
       }, 1600)
     }
