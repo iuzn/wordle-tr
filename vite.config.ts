@@ -22,6 +22,7 @@ const pwaOptions: Partial<VitePWAOptions> = {
     name: 'Wordle Kapışması',
     short_name: 'Wordle Kapışması',
     theme_color: '#ffffff',
+    display:"standalone",
     icons: [
       {
         src: '/icon-192.png',
