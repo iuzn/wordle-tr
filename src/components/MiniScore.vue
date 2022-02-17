@@ -31,7 +31,7 @@ const { user } = defineProps<{
 
 <style scoped>
 .mini-score {
-  --border-radius: 2px;
+  --border-radius: 4px;
 }
 
 .mini-score-name {

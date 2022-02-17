@@ -243,7 +243,7 @@ function genResultGrid () {
 
 <style scoped>
 #board-wrapper {
-  --border-radius: 4px;
+  --border-radius: 8px;
 
   display: flex;
   width: 100%;

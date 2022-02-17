@@ -47,7 +47,7 @@ const { sortedUsers, shrink = false } = defineProps<{
 }
 
 .mini-score {
-  --border-radius: 2px;
+  --border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;

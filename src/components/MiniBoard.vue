@@ -57,7 +57,7 @@ const currentBoard = $computed(() => {
 .mini-board {
   --box-size: v-bind(boxSize);
   --board-rows: v-bind(rows);
-  --border-radius: 2px;
+  --border-radius: 4px;
 
   font-size: v-bind(fontSize);
   display: grid;

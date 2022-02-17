@@ -32,7 +32,7 @@ const { user } = defineProps<{
 <style scoped>
 
 .mini-score-scores {
-  --border-radius: 2px;
+  --border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
