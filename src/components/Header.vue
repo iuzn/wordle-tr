@@ -65,28 +65,28 @@ function toggleInfoOpen () {
         </button>
       </h2>
       <p>
-        <strong>WORDLE KAPIŞMASI</strong>, <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a> tarafından geliştirilen <a class="link" href="https://github.com/CTNicholas/wordle-wars">WORDLE WARS</a>'ın  <a class="link" href="https://twitter.com/ibrahimuzn">@ibrahimuzn</a> tarafından Türkçe'ye çevrilmiş versiyonudur.
-      Kaynak:  <a class="link" href="https://github.com/iuzn/wordle-tr">GitHub</a>
+        <strong>WORDLE KAPIŞMASI</strong>, <a class="link" href="https://twitter.com/ctnicholasdev">@ctnicholasdev</a> tarafından geliştirilen <a class="link" href="https://github.com/CTNicholas/wordle-wars">WORDLE WARS</a>'ın  <a class="link" href="https://twitter.com/ibrahimuzn">@ibrahimuzn</a> tarafından Türkçe'ye çevrilmiş ve <span class="underline decoration-emerald-500 decoration-2">ek geliştirmeler</span> yapılmış bir versiyonudur.
+      Kaynak kodu:  <a class="link" href="https://github.com/iuzn/wordle-tr">GitHub</a>
       </p>
       <p>
-        Wordle Kapışması çok oyunculu eklemek için <a class="link" href="https://liveblocks.io/">Liveblocks</a>'i kullanır.
+        Wordle Kapışması çok oyunculu eklemek için <a class="link" href="https://liveblocks.io/">Liveblocks</a>'ı kullanır.
       </p>
       <div class="divider" />
-      <h2 class="mt-6">Nasıl oynanır</h2>
+      <h2 class="mt-6">Nasıl oynanır?</h2>
       <p>
         <strong>WORDLE</strong>'ı altı denemede bulun.
       </p>
       <p>
-        Her tahmin, geçerli bir beş harfli kelime olmalıdır. Göndermek için giriş düğmesine basın.      </p>
+        Her tahmin, geçerli bir beş harfli kelime olmalıdır. Göndermek için giriş düğmesine <span class="text-xs">(Enter'a)</span> basın.</p>
       <p>
         Her tahminden sonra, karoların rengi, tahmininizin kelimeye ne kadar yakın olduğunu göstermek için değişecektir.
       </p>
       <p>
-        WORDLE'ı ilk tahmin eden <strong>WORDLE KAPIŞMASINI</strong> kazanır.
+        WORDLE'ı <span class="text-xs">(doğru kelimeyi)</span> ilk tahmin eden <strong>WORDLE KAPIŞMASINI</strong> kazanır.
       </p>
       <div class="divider" />
       <p>
-        <strong>Examples</strong>
+        <strong>Örnekler</strong>
       </p>
       <div class="example">
         <p>
@@ -109,10 +109,29 @@ function toggleInfoOpen () {
         <p>Kelimenin hiçbir yerinde harf yok.</p>
       </div>
       <div class="divider" />
+      <h2>
+        <span>
+          Ek geliştirmeler:
+        </span>
+    </h2>
+    <ul class="list-disc">
+      <li>
+        <p>PWA desteği ile oyunu mobil cihazlarınıza bir uygulama gibi yükleyebilirsiniz. Bunun için internet tarayıcınızın menüsünden <span class="bg-green-300 dark:bg-green-800 text-sm py-0.5 px-1.5 rounded">ana ekrana ekle</span> seçeneğini kullanabilirisiniz.</p> </li>
+      <li>
+        <p>Kelime listesi geri bildirimler ile güncellenmektedir. <a href="https://sozluk.gov.tr/" target="_blank" class="link">TDK sözlüğünde</a> mevcut olmayan kelimeleri lütfen <a href="https://twitter.com/messages/compose?recipient_id=1153865029256720384" target="_blank" class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-lime-500 hover:underline underline-offset-1 decoration-2 decoration-gray-900 dark:decoration-gray-100 ">bilidirin.</a></p> </li>
+      <li>
+        <p>Wordle Kapışmasına farklı linkler üzerinden erişebilirisiniz: <br>- <a class="link" href="https://turkce.vercel.app">turkce.vercel.app</a><br> - <a class="link" href="https://kelime.vercel.app">kelime.vercel.app</a><br> - <a class="link" href="https://wordle.elementlab.net">wordle.elementlab.net</a></p>
+      </li>
+    </ul>
+      <br>
+      <h3>
+        Geliştirme fikirlerinizi <a class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-amber-500 hover:to-orange-300 hover:from-amber-500 hover:underline underline-offset-1 decoration-2 decoration-rose-300" href="https://github.com/iuzn/wordle-tr/discussions">Github projesi</a>'nde paylaşabilirsiniz.
+        <br>
+      </h3>
+      <div class="divider" />
       <p>
-        <strong>Her gün yeni bir WORDLE gelir!</strong>
+        Not: <strong>Her gün yeni bir WORDLE gelir!</strong>
       </p>
-
     </div>
   </div>
   <header>

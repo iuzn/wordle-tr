@@ -215,7 +215,7 @@ function onCopyScoreBoard (text:string) {
 
 // Create emoji scores
 function createEmojiScore (successGrid: string) {
-  let resultString = `#WordleWars #${answerDay}\n\n`
+  let resultString = `Wordle Türkçe #${answerDay}\n\n`
   sortedUsers.forEach((user, index) => {
     resultString += `${index + 1}. ${user.name}\n`
   })
@@ -344,6 +344,9 @@ function createEmojiScore (successGrid: string) {
             <div class="scores-grid">
               <MiniBoardScore v-for="(other, index) in sortUsers(savedScores().toArray())" :user="other" :position="index + 1" :showLetters="true" />
             </div>
+            <div class="mt-8 text-center flex flex-col justify-center items-center">
+
+            <span class="-mb-3 text-center text-sm bg-clip-text text-transparent bg-gradient-to-r from-cyan-500 to-indigo-600">Puan durumunu <b class="underline underline-offset-1 decoration-1 decoration-green-300 bg-clip-border ">paylaşamaya</b> ne dersin?</span>
             <button v-if="myPresence?.board?.length" @click="onCopyScoreBoard(emojiScore)" :disabled="!!copyLinkMessage" class="bg-indigo-700 hover:bg-indigo-500 text-center flex justify-center items-center">
              <span class=" mr-2">{{ copyLinkMessage || 'Puan durumunu paylaş' }}</span>
               <svg v-if="!copyLinkMessage" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -353,6 +356,7 @@ function createEmojiScore (successGrid: string) {
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
             </button>
+            </div>
             <div class="divider" />
             <div class="text-center mt-6">
               Yeni bir Wordle Kapışması için yarın tekrar gelin!
