@@ -1674,7 +1674,7 @@ const numbers=[
   while (day > answers.length) {
     day -= answers.length
   }
-  return { answer: answers[numbers[day+1]], answerDay: day + 1 }
+  return { answer: answers[numbers[day+2]], answerDay: day + 1 }
 }
 
 function dateToUtc (d: Date) {
