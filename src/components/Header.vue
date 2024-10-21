@@ -120,7 +120,7 @@ function toggleInfoOpen () {
       <li>
         <p>Kelime listesi geri bildirimler ile güncellenmektedir. <a href="https://sozluk.gov.tr/" target="_blank" class="link">TDK sözlüğünde</a> mevcut olmayan kelimeleri lütfen <a href="https://twitter.com/messages/compose?recipient_id=1153865029256720384" target="_blank" class="font-bold bg-clip-text text-transparent bg-gradient-to-r from-emerald-300 to-lime-500 hover:underline underline-offset-1 decoration-2 decoration-gray-900 dark:decoration-gray-100 ">bilidirin.</a></p> </li>
       <li>
-        <p>Wordle Kapışmasına farklı linkler üzerinden erişebilirisiniz: <br>- <a class="link" href="https://turkce.vercel.app">turkce.vercel.app</a><br> - <a class="link" href="https://kelime.vercel.app">kelime.vercel.app</a><br> - <a class="link" href="https://wordle.elementlab.net">wordle.elementlab.net</a></p>
+        <p>Wordle Kapışmasına farklı linkler üzerinden erişebilirisiniz: <br>- <a class="link" href="https://turkce.vercel.app">turkce.vercel.app</a><br> - <a class="link" href="https://kelime.vercel.app">kelime.vercel.app</a><br> </p>
       </li>
     </ul>
       <br>
